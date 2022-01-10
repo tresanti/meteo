@@ -1,0 +1,28 @@
+<div class="container">
+<div >
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="legacy">
+            <mat-label>Cerca</mat-label>
+            <input matInput placeholder="es:Milano,it" formControlName="cerca">
+          </mat-form-field>
+        <button mat-raised-button color="primary">CERCA</button>
+    </form>
+    <div *ngIf="citta ">
+        <div class="row" style="border-top-left-radius: 20px;border-top-right-radius: 20px;">
+            <h1 class="column"style="font-size:xx-large;" >{{citta$|async}} - {{country$|async}}</h1>{{oggi | date:"dd-MM-yyyy"}}<br>
+            <img class="column" src="{{icon$|async}}"/>
+            <div class="column">
+                <h2 class="gradi">C° {{gradi$ |async}}</h2>
+            </div>
+            <p style="font-size:x-large;color:white;text-shadow: 3px 1px 10px darkgrey;">{{descrizione$|async}}</p>
+        </div>
+        <app-content
+        [vento]="vento$|async"
+        [umidita]="umidita$|async"
+        [pressione]="pressione$|async"
+        [visibilita]="visibilita$|async"
+        ></app-content>
+        <app-list></app-list>
+    </div>
+</div>
+</div>

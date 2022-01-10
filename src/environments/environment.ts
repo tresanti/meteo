@@ -1,9 +1,15 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+export const local ={
+  lang:navigator.language,
+  key:"c5ad71aae5aa7a0278c7f9bae85bcfb2",
+  url: "http://api.openweathermap.org/data/2.5/weather?APPID="
+}
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl:local.url+local.key+"&lang="+local.lang.split('-')[0]
 };
 
 /*
