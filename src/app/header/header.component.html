@@ -22,7 +22,11 @@
         [pressione]="pressione$|async"
         [visibilita]="visibilita$|async"
         ></app-content>
-        <app-list></app-list>
+        <div *ngIf="image == true">
+            <ng-container *ngComponentOutlet="listComponent |async"></ng-container><br>
+        </div>
+        <button *ngIf="image == false" mat-raised-button color="primary" (click)="loadList()">Mostra MAPPA</button>
+
     </div>
 </div>
 </div>

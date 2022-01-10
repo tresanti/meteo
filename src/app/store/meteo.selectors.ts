@@ -39,3 +39,7 @@ export const country = createSelector(
     createFeatureSelector('meteo'),
     (state:MeteoState)=>{return `${state.sys}`}
 );
+export const image = createSelector(
+    createFeatureSelector('meteo'),
+    (state:MeteoState)=>{ return state.img}
+);

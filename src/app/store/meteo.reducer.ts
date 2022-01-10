@@ -11,7 +11,8 @@ export interface MeteoState{
     vento:number,
     icon:string,
     descrizione:string,
-    sys:string
+    sys:string,
+    img:string
 }
 export const initState:MeteoState={
     gradi:0,
@@ -22,7 +23,8 @@ export const initState:MeteoState={
     vento:0,
     icon:"",
     descrizione:"",
-    sys:""
+    sys:"",
+    img:""
 };
 const _meteoReducer = createReducer(
     initState,
@@ -36,7 +38,8 @@ const _meteoReducer = createReducer(
         vento:result[0]['wind'].speed,
         icon:result[0]['weather'][0].icon,
         descrizione:result[0]['weather'][0].description,
-        sys:result[0]['sys'].country
+        sys:result[0]['sys'].country,
+        img:`https://maps.google.it/maps?hl=it&ie=UTF8&q=${result[0]['coord']['lat']},${result[0]['coord']['lon']}&z=10&output=embed&t=k`
     })),
     on(actions.cittaFail,(state)=>({...state,
         citta:"",
@@ -47,7 +50,8 @@ const _meteoReducer = createReducer(
         vento:0,
         icon:"",
         descrizione:"",
-        sys:""
+        sys:"",
+        img:""
     })),
 );
 export function meteoReducer(state: any | undefined, action: Action) {
