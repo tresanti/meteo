@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 export const local ={
   lang:navigator.language,
-  key:"c5ad71aae5aa7a0278c7f9bae85bcfb2",
+  key:"xxxxxxxxxxxxxxxxxxxxx",
   url: "http://api.openweathermap.org/data/2.5/weather?APPID="
 }
 
